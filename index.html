@@ -187,48 +187,13 @@
             line-height: 1.6;
         }
 
-        /* Interactive Expandable Education Box */
-        .edu-box {
-            cursor: pointer;
+        /* Clean Education Box */
+        .edu-item {
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 14px;
             padding: 14px;
             background: rgba(255, 255, 255, 0.02);
-            transition: all 0.3s;
-        }
-
-        .edu-box:hover {
-            border-color: rgba(0, 242, 254, 0.4);
-            background: rgba(0, 242, 254, 0.03);
-        }
-
-        .hidden-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
-            opacity: 0;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 0px solid rgba(0, 242, 254, 0.2);
-            margin-top: 0px;
-            padding-top: 0px;
-        }
-
-        .edu-box.active .hidden-details {
-            max-height: 180px;
-            opacity: 1;
-            border-top: 1px dashed rgba(0, 242, 254, 0.2);
-            margin-top: 10px;
-            padding-top: 10px;
-        }
-
-        .toggle-hint {
-            font-size: 0.7rem;
-            color: var(--accent-cyan);
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-top: 8px;
-            letter-spacing: 0.5px;
+            margin-bottom: 10px;
         }
 
         /* Metrics Grid */
@@ -551,21 +516,19 @@
             <a href="https://lms-learning-management-system-beryl.vercel.app/" target="_blank" class="project-link-btn">Launch Live System &rarr;</a>
         </div>
 
-        <!-- Card 4: Education Matrix (Span 1) - Completely Hidden CGPA & Scores -->
+        <!-- Card 4: Education Matrix (Span 1) - Clean Institutions & Years Only -->
         <div class="glass-card span-1">
             <h3>🎓 Education</h3>
-            <div class="edu-box" id="eduToggle" onclick="toggleEducation()">
-                <p style="color: #ffffff; font-weight: 700; margin-bottom: 2px;">B.Tech in CSE</p>
-                <p style="font-size: 0.85rem; margin-bottom: 4px;">GRIET, Hyderabad</p>
-                <p style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 600;">Class of 2026</p>
-                
-                <div class="toggle-hint">▼ Click to View Academic Marks</div>
+            
+            <div class="edu-item">
+                <p style="color: #ffffff; font-weight: 700; font-size: 0.95rem;">B.Tech in CSE</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">GRIET, Hyderabad</p>
+                <p style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600; margin-top: 4px;">Class of 2026</p>
+            </div>
 
-                <div class="hidden-details" id="hiddenEdu">
-                    <strong style="color: #f8fafc;">B.Tech CGPA:</strong> 6.89 / 10<br>
-                    <strong style="color: #f8fafc;">Intermediate (MPC):</strong> 508 Marks<br>
-                    <strong style="color: #f8fafc;">SSC (10th):</strong> 8.2 CGPA
-                </div>
+            <div class="edu-item" style="margin-bottom: 0;">
+                <p style="color: #ffffff; font-weight: 700; font-size: 0.95rem;">Intermediate (MPC)</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Gouthami Junior College</p>
             </div>
         </div>
 
@@ -631,12 +594,6 @@
     </div>
 
     <script>
-        // --- INTERACTIVE EDUCATION TOGGLE ---
-        function toggleEducation() {
-            const box = document.getElementById('eduToggle');
-            box.classList.toggle('active');
-        }
-
         // --- THREE.JS 3D HOLOGRAPHIC BACKGROUND ENGINE ---
         const container = document.getElementById('webgl-container');
         const scene = new THREE.Scene();
