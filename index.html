@@ -253,19 +253,44 @@
             width: 100%;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             color: white;
-            padding: 13px;
-            border-radius: 14px;
+            padding: 12px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.95rem;
-            margin-top: 16px;
-            box-shadow: 0 4px 25px rgba(121, 40, 202, 0.4);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            box-shadow: 0 4px 20px rgba(121, 40, 202, 0.4);
             transition: all 0.3s;
         }
 
         .btn-cyber:hover {
             opacity: 0.95;
-            box-shadow: 0 6px 30px rgba(0, 242, 254, 0.5);
+            box-shadow: 0 6px 25px rgba(0, 242, 254, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-github {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #f8fafc;
+            padding: 11px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-github:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
             transform: translateY(-2px);
         }
 
@@ -275,21 +300,21 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(52, 211, 153, 0.08);
+            border: 1px solid rgba(52, 211, 153, 0.25);
             color: #34d399;
-            padding: 12px;
-            border-radius: 14px;
+            padding: 11px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.95rem;
-            margin-top: 10px;
+            font-size: 0.9rem;
+            margin-top: 8px;
             transition: all 0.3s;
         }
 
         .btn-secondary-cyber:hover {
-            background: rgba(52, 211, 153, 0.1);
-            border-color: rgba(52, 211, 153, 0.4);
+            background: rgba(52, 211, 153, 0.15);
+            border-color: rgba(52, 211, 153, 0.5);
             transform: translateY(-2px);
         }
 
@@ -411,9 +436,10 @@
         <!-- Card 2: Quick Connect (Span 1) -->
         <div class="glass-card span-1">
             <h3>⚡ Quick Connect</h3>
-            <p style="margin-bottom: 8px; font-size: 0.85rem;"><strong>Email:</strong><br><a href="mailto:goli.anupreddy03@gmail.com" class="contact-anchor">goli.anupreddy03@gmail.com</a></p>
-            <p style="margin-bottom: 12px; font-size: 0.85rem;"><strong>Phone:</strong><br><span style="color: #f8fafc; font-weight: 700;">+91 8978962149</span></p>
+            <p style="margin-bottom: 6px; font-size: 0.85rem;"><strong>Email:</strong><br><a href="mailto:goli.anupreddy03@gmail.com" class="contact-anchor">goli.anupreddy03@gmail.com</a></p>
+            <p style="margin-bottom: 10px; font-size: 0.85rem;"><strong>Phone:</strong><br><span style="color: #f8fafc; font-weight: 700;">+91 8978962149</span></p>
             <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank" class="btn-cyber">Connect on LinkedIn</a>
+            <a href="https://github.com/golianupreddy" target="_blank" class="btn-github">💻 GitHub Profile</a>
             <a href="resume.pdf" target="_blank" class="btn-secondary-cyber">📄 Download Resume</a>
         </div>
 
