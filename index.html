@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goli Anup Reddy | Next-Gen Software Engineer</title>
+    <title>Goli Anup Reddy | 3D Cybernetic Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Three.js Library for 3D Holographic Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root {
-            --bg-color: #02040a;
-            --card-bg: rgba(13, 17, 28, 0.75);
-            --card-border: rgba(99, 102, 241, 0.15);
-            --card-border-hover: rgba(168, 85, 247, 0.5);
-            --accent-cyan: #06b6d4;
-            --accent-purple: #a855f7;
-            --accent-blue: #3b82f6;
-            --text-main: #f1f5f9;
+            --bg-color: #010308;
+            --card-bg: rgba(8, 12, 24, 0.65);
+            --card-border: rgba(0, 242, 254, 0.15);
+            --card-border-hover: rgba(0, 242, 254, 0.6);
+            --accent-cyan: #00f2fe;
+            --accent-purple: #7928ca;
+            --accent-blue: #4facfe;
+            --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
 
@@ -38,25 +40,13 @@
             position: relative;
         }
 
-        /* Dynamic Mouse Follow Glow Effect */
-        #cursor-glow {
+        /* 3D Canvas Background */
+        #webgl-container {
             position: fixed;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 80%);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s;
-            z-index: 1;
-        }
-
-        .cyber-grid {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             z-index: 0;
             pointer-events: none;
         }
@@ -79,21 +69,21 @@
 
         .glass-card {
             background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--card-border);
             border-radius: 24px;
             padding: 30px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .glass-card:hover {
             border-color: var(--card-border-hover);
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 30px 70px rgba(0, 242, 254, 0.2);
         }
 
         .span-2 { grid-column: span 2; }
@@ -117,15 +107,15 @@
             overflow: hidden;
             border: 2px solid var(--accent-cyan);
             flex-shrink: 0;
-            background: #0f172a;
+            background: #060b19;
             position: relative;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
             transition: transform 0.3s;
         }
 
         .avatar-frame:hover {
-            transform: scale(1.06) rotate(2deg);
+            transform: scale(1.08) rotate(3deg);
         }
 
         .avatar-frame img {
@@ -135,10 +125,10 @@
         }
 
         .profile-details h1 {
-            font-size: 2rem;
+            font-size: 2.1rem;
             font-weight: 800;
             letter-spacing: -0.8px;
-            background: linear-gradient(135deg, #ffffff, var(--accent-cyan), var(--accent-purple));
+            background: linear-gradient(135deg, #ffffff, var(--accent-cyan), var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 6px;
@@ -154,15 +144,15 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(0, 242, 254, 0.08);
+            border: 1px solid rgba(0, 242, 254, 0.3);
             padding: 6px 14px;
             border-radius: 30px;
             font-size: 0.75rem;
             color: var(--accent-cyan);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             margin-top: 14px;
         }
 
@@ -171,17 +161,16 @@
             height: 8px;
             background-color: var(--accent-cyan);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-cyan);
-            animation: pulse-radar 1.8s infinite;
+            box-shadow: 0 0 12px var(--accent-cyan);
+            animation: pulse-radar 1.5s infinite;
         }
 
         @keyframes pulse-radar {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.8); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
         }
 
-        /* Typography & Headers */
         .glass-card h3 {
             font-size: 1.25rem;
             font-weight: 700;
@@ -198,17 +187,17 @@
             line-height: 1.6;
         }
 
-        /* Interactive Terminal Component */
+        /* Holographic Terminal */
         .terminal-box {
-            background: #010409;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(2, 6, 15, 0.9);
+            border: 1px solid rgba(0, 242, 254, 0.2);
             border-radius: 14px;
             padding: 16px;
             font-family: 'Fira Code', monospace;
             font-size: 0.85rem;
             color: #38bdf8;
             margin-top: 15px;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.8);
+            box-shadow: inset 0 2px 15px rgba(0,0,0,0.9);
         }
 
         .terminal-header {
@@ -222,15 +211,11 @@
         .t-yellow { background: #f59e0b; }
         .t-green { background: #10b981; }
 
-        .terminal-body {
-            line-height: 1.5;
-        }
-
-        .prompt { color: #a855f7; }
+        .prompt { color: #c084fc; }
         .cmd { color: #f8fafc; }
         .output { color: #94a3b8; margin-bottom: 6px; }
 
-        /* Skills Matrix Badges */
+        /* Skills Badges */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -254,7 +239,7 @@
 
         .tech-badge:hover {
             border-color: var(--accent-cyan);
-            background: rgba(6, 182, 212, 0.08);
+            background: rgba(0, 242, 254, 0.1);
             color: var(--accent-cyan);
             transform: translateY(-2px);
         }
@@ -274,13 +259,13 @@
             font-weight: 700;
             font-size: 0.95rem;
             margin-top: 16px;
-            box-shadow: 0 4px 25px rgba(168, 85, 247, 0.3);
+            box-shadow: 0 4px 25px rgba(121, 40, 202, 0.4);
             transition: all 0.3s;
         }
 
         .btn-cyber:hover {
             opacity: 0.95;
-            box-shadow: 0 6px 30px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 6px 30px rgba(0, 242, 254, 0.5);
             transform: translateY(-2px);
         }
 
@@ -312,9 +297,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            color: #d8b4fe;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            color: var(--accent-cyan);
             padding: 9px 18px;
             border-radius: 12px;
             text-decoration: none;
@@ -325,8 +310,8 @@
         }
 
         .project-link-btn:hover {
-            background: rgba(168, 85, 247, 0.25);
-            border-color: var(--accent-purple);
+            background: rgba(0, 242, 254, 0.25);
+            border-color: var(--accent-cyan);
             color: #ffffff;
         }
 
@@ -350,10 +335,10 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(2, 4, 10, 0.9);
+            background-color: rgba(1, 3, 8, 0.9);
             justify-content: center;
             align-items: center;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
         }
 
         .modal-content {
@@ -361,7 +346,7 @@
             max-height: 90%;
             border-radius: 20px;
             border: 2px solid var(--accent-cyan);
-            box-shadow: 0 0 50px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 60px rgba(0, 242, 254, 0.5);
             object-fit: contain;
         }
 
@@ -398,8 +383,8 @@
 </head>
 <body>
 
-    <div id="cursor-glow"></div>
-    <div class="cyber-grid"></div>
+    <!-- 3D WebGL Canvas Background -->
+    <div id="webgl-container"></div>
 
     <div class="main-container">
         
@@ -407,7 +392,7 @@
         <div class="glass-card span-2">
             <div class="profile-wrapper">
                 <div class="avatar-frame" onclick="openModal()" title="Click to Expand Photo">
-                    <img id="profileImg" src="profile.jpg" alt="Goli Anup Reddy" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'display:flex;align-items:center;justify-content:center;height:100%;color:#06b6d4;font-weight:bold;\'>ANUP</span>';">
+                    <img id="profileImg" src="profile.jpg" alt="Goli Anup Reddy" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'display:flex;align-items:center;justify-content:center;height:100%;color:#00f2fe;font-weight:bold;\'>ANUP</span>';">
                 </div>
                 <div class="profile-details">
                     <h1>Goli Anup Reddy</h1>
@@ -419,7 +404,7 @@
                 </div>
             </div>
             <p style="margin-top: 22px;">
-                B.Tech CSE Graduate from <strong>Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad</strong>. Specialized in architecting high-performance full-stack applications, secure REST APIs, and decentralized blockchain systems.
+                B.Tech CSE Graduate from <strong>Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad</strong>. Specialized in high-performance full-stack web architectures, secure REST protocols, and decentralized blockchain systems.
             </p>
         </div>
 
@@ -427,14 +412,14 @@
         <div class="glass-card span-1">
             <h3>⚡ Quick Connect</h3>
             <p style="margin-bottom: 8px; font-size: 0.85rem;"><strong>Email:</strong><br><a href="mailto:goli.anupreddy03@gmail.com" class="contact-anchor">goli.anupreddy03@gmail.com</a></p>
-            <p style="margin-bottom: 12px; font-size: 0.85rem;"><strong>Phone:</strong><br><span style="color: #f1f5f9; font-weight: 700;">+91 8978962149</span></p>
+            <p style="margin-bottom: 12px; font-size: 0.85rem;"><strong>Phone:</strong><br><span style="color: #f8fafc; font-weight: 700;">+91 8978962149</span></p>
             <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank" class="btn-cyber">Connect on LinkedIn</a>
             <a href="resume.pdf" target="_blank" class="btn-secondary-cyber">📄 Download Resume</a>
         </div>
 
         <!-- Card 3: Featured Project - LMS (Span 2) -->
         <div class="glass-card span-2">
-            <span style="background: rgba(6, 182, 212, 0.1); color: var(--accent-cyan); padding: 4px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Flagship System</span>
+            <span style="background: rgba(0, 242, 254, 0.1); color: var(--accent-cyan); padding: 4px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Flagship System</span>
             <h3 style="margin-top: 10px;">Learning Management System (LMS)</h3>
             <p>
                 An end-to-end web-based e-learning ecosystem featuring secure JWT authentication, role-based access control, interactive student workflows, and centralized Redux state management.
@@ -463,7 +448,7 @@
 
         <!-- Card 5: Blockchain Decentralized Voting System (Span 2) -->
         <div class="glass-card span-2">
-            <span style="background: rgba(168, 85, 247, 0.1); color: var(--accent-purple); padding: 4px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Blockchain Architecture</span>
+            <span style="background: rgba(121, 40, 202, 0.15); color: #d8b4fe; padding: 4px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Blockchain Architecture</span>
             <h3 style="margin-top: 10px;">Decentralized Voting System</h3>
             <p>
                 A tamper-proof electronic voting platform leveraging smart contracts, cryptographic hashing, and distributed ledger technology to eradicate electoral fraud and ensure absolute ballot auditability.
@@ -501,9 +486,9 @@
                     <div class="t-dot t-green"></div>
                 </div>
                 <div class="terminal-body">
-                    <span class="prompt">anup@portfolio:~$</span> <span class="cmd">status --verify</span><br>
-                    <span class="output">> System operational. Ready for high-impact software engineering roles.</span><br>
-                    <span class="prompt">anup@portfolio:~$</span> <span class="cmd">cat contact.txt</span><br>
+                    <span class="prompt">anup@3d-core:~$</span> <span class="cmd">status --verify</span><br>
+                    <span class="output">> WebGL 3D Matrix Active. Software Engineering Core Online.</span><br>
+                    <span class="prompt">anup@3d-core:~$</span> <span class="cmd">cat contact.txt</span><br>
                     <span class="output">> Email: goli.anupreddy03@gmail.com | Location: Hyderabad, India</span>
                 </div>
             </div>
@@ -511,7 +496,7 @@
 
         <!-- Footer -->
         <div class="footer-cyber">
-            &copy; 2026 Goli Anup Reddy. Engineered with Next-Gen Glassmorphism & Cyber Architecture.
+            &copy; 2026 Goli Anup Reddy. Powered by Three.js 3D WebGL Holographic Engine.
         </div>
 
     </div>
@@ -523,13 +508,75 @@
     </div>
 
     <script>
-        // Interactive Mouse Follow Glow Script
-        const cursorGlow = document.getElementById('cursor-glow');
-        window.addEventListener('mousemove', (e) => {
-            cursorGlow.style.left = e.clientX + 'px';
-            cursorGlow.style.top = e.clientY + 'px';
+        // --- THREE.JS 3D HOLOGRAPHIC BACKGROUND ENGINE ---
+        const container = document.getElementById('webgl-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        // Create 3D Floating Particle Torus / Cybernetic Ring
+        const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+        const material = new THREE.PointsMaterial({
+            size: 0.05,
+            color: 0x00f2fe,
+            transparent: true,
+            opacity: 0.8
+        });
+        const torusSystem = new THREE.Points(geometry, material);
+        scene.add(torusSystem);
+
+        // Add Floating Background Stars / Particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 1500;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 50;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.03,
+            color: 0x7928ca
+        });
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        camera.position.z = 25;
+
+        // Mouse Movement Interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        window.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - window.innerWidth / 2) * 0.001;
+            mouseY = (event.clientY - window.innerHeight / 2) * 0.001;
         });
 
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            torusSystem.rotation.x += 0.003 + mouseY * 0.2;
+            torusSystem.rotation.y += 0.005 + mouseX * 0.2;
+
+            particlesMesh.rotation.y -= 0.001;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Window Resize Listener
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Modal Functions
         function openModal() {
             var modal = document.getElementById("imageModal");
             var modalImg = document.getElementById("modalImg");
