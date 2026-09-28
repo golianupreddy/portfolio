@@ -5,123 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goli Anup Reddy - Portfolio</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f6f9;
-            color: #333;
-            text-align: center;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
         }
         header {
-            background: linear-gradient(135deg, #0077b5, #00a0dc);
-            color: white;
+            background: linear-gradient(135deg, #1e1b4b, #312e81, #1e3a8a);
             padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .profile-container {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.5s ease;
+        }
+        .profile-container:hover {
+            transform: perspective(1000px) rotateY(15deg) scale(1.05);
+        }
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
         }
         h1 {
-            margin: 0;
-            font-size: 2.5em;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .subtitle {
             font-size: 1.2em;
-            margin-top: 10px;
-            color: #e0f7fa;
+            color: #38bdf8;
+            margin-bottom: 25px;
         }
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 25px;
-            background-color: white;
-            color: #0077b5;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            color: white;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        section {
-            padding: 50px 20px;
-            max-width: 800px;
-            margin: auto;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         h2 {
-            color: #0077b5;
-            margin-bottom: 20px;
+            color: #38bdf8;
+            margin-bottom: 15px;
+            font-size: 1.8em;
         }
         p {
-            line-height: 1.6;
-            color: #555;
+            color: #94a3b8;
             font-size: 1.1em;
         }
-        .skills-container {
+        .skills-grid {
             display: flex;
-            justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 15px;
         }
-        .skill-badge {
-            background-color: #0077b5;
-            color: white;
-            padding: 10px 20px;
+        .skill-tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 8px 16px;
             border-radius: 20px;
-            font-weight: bold;
+            font-weight: 600;
         }
         footer {
-            background-color: #333;
-            color: white;
-            padding: 30px 20px;
-            margin-top: 40px;
+            text-align: center;
+            padding: 40px 20px;
+            background: #090d16;
+            color: #64748b;
         }
         footer a {
-            color: #00a0dc;
+            color: #38bdf8;
             text-decoration: none;
             font-weight: bold;
-            margin: 0 10px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Step 1: Hero Section -->
+    <!-- 3D Hero Section with Photo -->
     <header>
+        <div class="profile-container">
+            <img src="profile.jpg" alt="Goli Anup Reddy">
+        </div>
         <h1>Goli Anup Reddy</h1>
         <p class="subtitle">Computer Science & Engineering Graduate | Tech & Data Enthusiast</p>
         <a href="mailto:goli.anupreddy03@gmail.com" class="btn">Get in Touch</a>
     </header>
 
-    <!-- Step 2: About Me Section -->
-    <section>
-        <h2>About Me</h2>
-        <p>
-            Hello! I am Goli Anup Reddy, a recent Computer Science and Engineering graduate from Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad. 
-            I have a strong foundation in programming, data handling, and problem-solving. I am passionate about leveraging my technical skills to build a successful career in the technology and corporate sector.
-        </p>
-    </section>
-
-    <!-- Step 2: Skills Section -->
-    <section style="background-color: #ffffff;">
-        <h2>Technical Skills</h2>
-        <div class="skills-container">
-            <div class="skill-badge">Programming</div>
-            <div class="skill-badge">Data Handling</div>
-            <div class="skill-badge">Problem Solving</div>
-            <div class="skill-badge">Web Development Basics</div>
-            <div class="skill-badge">SQL & Databases</div>
+    <div class="container">
+        <!-- About Section -->
+        <div class="card">
+            <h2>About Me</h2>
+            <p>
+                Hello! I am Goli Anup Reddy, a recent Computer Science and Engineering graduate from Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad[cite: 1]. 
+                I have a strong foundation in programming, data handling, and problem-solving. I am passionate about leveraging my technical skills to build a successful career in the technology and corporate sector.
+            </p>
         </div>
-    </section>
 
-    <!-- Step 3: Contact Section -->
-    <section>
-        <h2>Contact Information</h2>
-        <p>Feel free to reach out to me for opportunities or collaborations!</p>
-        <p><strong>Email:</strong> goli.anupreddy03@gmail.com</p>
-        <p><strong>Phone:</strong> +91 8978962149</p>
-        <p><strong>Location:</strong> Hyderabad, Telangana, India</p>
-    </section>
+        <!-- Skills Section -->
+        <div class="card">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Programming</div>
+                <div class="skill-tag">Data Handling</div>
+                <div class="skill-tag">Problem Solving</div>
+                <div class="skill-tag">Web Development</div>
+                <div class="skill-tag">SQL & Databases</div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="card">
+            <h2>Contact Information</h2>
+            <p style="margin-bottom: 8px;">Feel free to reach out to me for opportunities or collaborations!</p>
+            <p><strong>Email:</strong> goli.anupreddy03@gmail.com</p>
+            <p><strong>Phone:</strong> +91 8978962149</p>
+            <p><strong>Location:</strong> Hyderabad, Telangana, India</p>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Goli Anup Reddy. All rights reserved.</p>
-        <p>
+        <p style="margin-top: 10px;">
             <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank">LinkedIn Profile</a>
         </p>
     </footer>
