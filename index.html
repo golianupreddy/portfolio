@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goli Anup Reddy | Professional Dashboard & Portfolio</title>
+    <title>Goli Anup Reddy | Software Engineer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #050508;
-            --card-bg: #12131a;
+            --bg-color: #030712;
+            --card-bg: #111827;
             --card-border: rgba(255, 255, 255, 0.08);
             --accent-blue: #3b82f6;
             --accent-purple: #8b5cf6;
@@ -27,7 +27,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            padding: 30px 20px;
+            padding: 40px 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -55,24 +55,23 @@
             padding: 30px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .card:hover {
-            border-color: rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.4);
             transform: translateY(-3px);
         }
 
-        /* Span Layouts for Bento Grid */
         .span-2 { grid-column: span 2; }
-        .span-1 { grid-column: span 1; }
+        .span-3 { grid-column: span 3; }
 
         @media (max-width: 900px) {
-            .span-2, .span-1 { grid-column: span 1; }
+            .span-2, .span-3 { grid-column: span 1; }
         }
 
-        /* Profile Card */
+        /* Profile Header */
         .profile-header {
             display: flex;
             align-items: center;
@@ -80,8 +79,8 @@
         }
 
         .profile-img-box {
-            width: 90px;
-            height: 90px;
+            width: 95px;
+            height: 95px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid var(--accent-blue);
@@ -90,9 +89,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: center;
         }
 
         .profile-img-box img {
@@ -102,10 +98,10 @@
         }
 
         .profile-info h1 {
-            font-size: 1.8rem;
+            font-size: 1.85rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             background: linear-gradient(135deg, #60a5fa, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -127,7 +123,7 @@
             font-size: 0.75rem;
             color: #34d399;
             font-weight: 600;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .pulse {
@@ -138,15 +134,11 @@
             box-shadow: 0 0 8px #34d399;
         }
 
-        /* Typography & Headings inside cards */
         .card h3 {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .card p {
@@ -160,11 +152,11 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .tag {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--card-border);
             padding: 6px 14px;
             border-radius: 10px;
@@ -175,7 +167,7 @@
 
         /* Buttons */
         .btn-primary {
-            display: block;
+            display: inline-block;
             width: 100%;
             text-align: center;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
@@ -184,13 +176,31 @@
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 20px;
+            margin-top: 15px;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
             transition: opacity 0.2s;
         }
 
         .btn-primary:hover {
             opacity: 0.9;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: #60a5fa;
+            padding: 8px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(59, 130, 246, 0.1);
         }
 
         .contact-link {
@@ -209,7 +219,9 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.85rem;
-            padding: 10px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--card-border);
+            margin-top: 10px;
         }
 
         @media (max-width: 900px) {
@@ -224,9 +236,8 @@
         <!-- Card 1: Profile & Intro (Span 2) -->
         <div class="card span-2">
             <div class="profile-header">
-                <!-- Photo frame: Place your image as 'profile.jpg' in the folder -->
                 <div class="profile-img-box">
-                    <img src="profile.jpg" alt="Goli Anup Reddy" onerror="this.style.display='none'; this.parentNode.innerHTML='<span>Add Photo<br>profile.jpg</span>';">
+                    <img src="profile.jpg" alt="Goli Anup Reddy" onerror="this.style.display='none'; this.parentNode.innerHTML='<span>Photo</span>';">
                 </div>
                 <div class="profile-info">
                     <h1>Goli Anup Reddy</h1>
@@ -238,44 +249,63 @@
                 </div>
             </div>
             <p style="margin-top: 20px;">
-                Graduated from <strong>Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad</strong>. Passionate about software foundations, structured algorithms, database handling, and building robust tech systems.
+                Graduated from <strong>Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad</strong>. Passionate about software architecture, data handling, and deploying robust full-stack applications.
             </p>
         </div>
 
-        <!-- Card 2: Quick Contact (Span 1) -->
+        <!-- Card 2: Quick Connect (Span 1) -->
         <div class="card span-1">
             <h3>Quick Connect</h3>
-            <p style="margin-bottom: 10px;"><strong>Email:</strong><br><a href="mailto:goli.anupreddy03@gmail.com" class="contact-link">goli.anupreddy03@gmail.com</a></p>
-            <p style="margin-bottom: 15px;"><strong>Phone:</strong><br><span style="color: #f8fafc; font-weight: 600;">+91 8978962149</span></p>
+            <p style="margin-bottom: 8px;"><strong>Email:</strong><br><a href="mailto:goli.anupreddy03@gmail.com" class="contact-link">goli.anupreddy03@gmail.com</a></p>
+            <p style="margin-bottom: 12px;"><strong>Phone:</strong><br><span style="color: #f8fafc; font-weight: 600;">+91 8978962149</span></p>
             <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank" class="btn-primary">LinkedIn Profile</a>
         </div>
 
-        <!-- Card 3: Education & Background (Span 1) -->
-        <div class="card span-1">
-            <h3>Education</h3>
-            <p style="color: #f1f5f9; font-weight: 600; margin-bottom: 5px;">B.Tech in CSE</p>
-            <p style="font-size: 0.9rem; margin-bottom: 8px;">GRIET, Hyderabad</p>
-            <p style="font-size: 0.85rem; color: #60a5fa;">Focus: Core Computer Science, Programming & Data Structures.</p>
+        <!-- Card 3: Featured Project - LMS (Span 2) -->
+        <div class="card span-2" style="border-color: rgba(59, 130, 246, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <span style="background: rgba(59, 130, 246, 0.1); color: #60a5fa; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Featured Project</span>
+                    <h3 style="margin-top: 10px; font-size: 1.4rem;">Learning Management System (LMS)</h3>
+                </div>
+            </div>
+            <p style="margin-top: 10px;">
+                A fully functional, web-based Learning Management System designed to streamline course management, student workflows, and educational content delivery with a modern UI.
+            </p>
+            <div style="margin-top: 12px;">
+                <span class="tag">Web Architecture</span>
+                <span class="tag">UI/UX</span>
+                <span class="tag">Education Tech</span>
+            </div>
+            <a href="https://lms-learning-management-system-beryl.vercel.app/" target="_blank" class="btn-outline">Launch Live Project &rarr;</a>
         </div>
 
-        <!-- Card 4: Technical Capabilities (Span 2) -->
-        <div class="card span-2">
+        <!-- Card 4: Education (Span 1) -->
+        <div class="card span-1">
+            <h3>Education</h3>
+            <p style="color: #f1f5f9; font-weight: 600; margin-bottom: 4px;">B.Tech in CSE</p>
+            <p style="font-size: 0.9rem; margin-bottom: 6px;">GRIET, Hyderabad</p>
+            <p style="font-size: 0.85rem; color: #60a5fa;">Core CS & Problem Solving</p>
+        </div>
+
+        <!-- Card 5: Technical Stack (Span 3) -->
+        <div class="card span-3">
             <h3>Technical Stack & Capabilities</h3>
-            <p>Core engineering proficiencies aligned with modern corporate technology standards.</p>
+            <p>Comprehensive skill set aligned with modern corporate software standards.</p>
             <div class="skills-flex">
                 <span class="tag">Python</span>
                 <span class="tag">Data Structures</span>
                 <span class="tag">SQL & Databases</span>
-                <span class="tag">Problem Solving</span>
-                <span class="tag">Web Development</span>
+                <span class="tag">HTML / CSS / JavaScript</span>
+                <span class="tag">Full-Stack Deployment</span>
                 <span class="tag">Git & GitHub</span>
-                <span class="tag">Analytical Thinking</span>
+                <span class="tag">Problem Solving</span>
             </div>
         </div>
 
         <!-- Footer Note -->
         <div class="footer-note">
-            &copy; 2026 Goli Anup Reddy. Professional Executive Dashboard.
+            &copy; 2026 Goli Anup Reddy. Built with Next-Level Professional Architecture.
         </div>
 
     </div>
