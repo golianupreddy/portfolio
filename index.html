@@ -3,123 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goli Anup Reddy - Portfolio</title>
+    <title>Goli Anup Reddy | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #0f1016;
-            color: #ffffff;
-            text-align: center;
+            scroll-behavior: smooth;
         }
-        .slide {
-            min-height: 100vh;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
-            border-bottom: 1px solid #222;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        h1 {
-            font-size: 3em;
-            margin: 10px 0;
-            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        header p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .cta-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         h2 {
-            font-size: 2.2em;
-            color: #00d2ff;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
             margin-bottom: 20px;
         }
-        p, li {
-            font-size: 1.2em;
-            color: #b3b3b3;
-            max-width: 700px;
-            line-height: 1.6;
-        }
         .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        .skill-item {
+            background: rgba(51, 65, 85, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+        .contact-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
-            justify-content: center;
             margin-top: 20px;
         }
-        .skill-card {
-            background-color: #1a1c29;
-            padding: 15px 30px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            font-weight: bold;
-            color: #fff;
-        }
-        .btn {
-            margin-top: 30px;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
-            color: white;
+        .contact-btn {
+            background: rgba(51, 65, 85, 0.6);
+            color: #f8fafc;
+            padding: 10px 20px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 500;
         }
-        .btn:hover {
-            opacity: 0.8;
+        .contact-btn:hover {
+            background: #3b82f6;
+            border-color: #3b82f6;
         }
         footer {
-            padding: 40px;
-            background-color: #08090c;
-            color: #666;
-        }
-        footer a {
-            color: #00d2ff;
-            text-decoration: none;
+            text-align: center;
+            padding: 40px 0;
+            color: #64748b;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Slide 1: Cover / Intro -->
-    <div class="slide">
-        <p style="color: #00d2ff; letter-spacing: 2px;">HELLO, I AM</p>
-        <h1>Goli Anup Reddy</h1>
-        <p>Computer Science & Engineering Graduate | Tech & Data Enthusiast</p>
-        <a href="#about" class="btn">Explore Portfolio</a>
-    </div>
+    <div class="container">
+        <!-- Hero Section -->
+        <header>
+            <p style="color: #60a5fa; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Portfolio</p>
+            <h1>Goli Anup Reddy</h1>
+            <p>Computer Science & Engineering Graduate specializing in software foundations, data handling, and building digital solutions.</p>
+            <a href="#about" class="cta-btn">Explore Profile</a>
+        </header>
 
-    <!-- Slide 2: About Me -->
-    <div class="slide" id="about">
-        <h2>About Me</h2>
-        <p>
-            I recently graduated with a Bachelor of Technology in Computer Science and Engineering from Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad. I specialize in building solutions, handling data, and continuous learning.
-        </p>
-    </div>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="card">
+                <p style="color: #cbd5e1; font-size: 1.1rem;">
+                    I am a Computer Science and Engineering graduate from Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad. I have a robust technical background focused on structured programming, problem-solving, and system workflows. I am eager to apply my capabilities to challenging corporate and technology roles.
+                </p>
+            </div>
+        </section>
 
-    <!-- Slide 3: Skills -->
-    <div class="slide">
-        <h2>Skills & Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card">Python & Programming</div>
-            <div class="skill-card">Data Handling</div>
-            <div class="skill-card">SQL & Databases</div>
-            <div class="skill-card">Problem Solving</div>
-            <div class="skill-card">Web Development Basics</div>
-        </div>
-    </div>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python / Programming</div>
+                <div class="skill-item">Data Handling & SQL</div>
+                <div class="skill-item">Problem Solving</div>
+                <div class="skill-item">Web Technologies</div>
+                <div class="skill-item">Git & Version Control</div>
+                <div class="skill-item">Analytical Thinking</div>
+            </div>
+        </section>
 
-    <!-- Slide 4: Contact / Socials -->
-    <div class="slide">
-        <h2>Let's Connect</h2>
-        <p>Email: goli.anupreddy03@gmail.com</p>
-        <p>Phone: +91 8978962149</p>
-        <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank" class="btn">LinkedIn Profile</a>
-    </div>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="card">
+                <p style="color: #cbd5e1; margin-bottom: 20px;">I am actively looking for new opportunities. Feel free to connect with me via email or LinkedIn.</p>
+                <p style="margin-bottom: 10px;"><strong>Email:</strong> goli.anupreddy03@gmail.com</p>
+                <p style="margin-bottom: 20px;"><strong>Phone:</strong> +91 8978962149</p>
+                <div class="contact-links">
+                    <a href="mailto:goli.anupreddy03@gmail.com" class="contact-btn">Send Email</a>
+                    <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank" class="contact-btn">LinkedIn Profile</a>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 Goli Anup Reddy. Designed with modern dark theme style.</p>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Goli Anup Reddy. Built with precision and modern UI standards.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
