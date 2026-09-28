@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goli Anup Reddy | Software Engineer Portfolio</title>
+    <title>Goli Anup Reddy | Software Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #030712;
-            --card-bg: #111827;
-            --card-border: rgba(255, 255, 255, 0.08);
+            --bg-color: #090a0f;
+            --card-bg: #12141c;
+            --card-border: rgba(255, 255, 255, 0.06);
+            --card-border-hover: rgba(139, 92, 246, 0.3);
             --accent-blue: #3b82f6;
             --accent-purple: #8b5cf6;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
         }
 
         * {
@@ -27,41 +28,43 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            padding: 40px 20px;
+            padding: 50px 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.08), transparent 50%);
         }
 
-        .dashboard-container {
+        .bento-container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1000px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
         @media (max-width: 900px) {
-            .dashboard-container {
+            .bento-container {
                 grid-template-columns: 1fr;
             }
         }
 
-        .card {
+        .bento-card {
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 28px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .card:hover {
-            border-color: rgba(59, 130, 246, 0.4);
-            transform: translateY(-3px);
+        .bento-card:hover {
+            border-color: var(--card-border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
         }
 
         .span-2 { grid-column: span 2; }
@@ -71,69 +74,68 @@
             .span-2, .span-3 { grid-column: span 1; }
         }
 
-        /* Profile Header */
-        .profile-header {
+        /* Profile Header inside Bento */
+        .profile-flex {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 22px;
         }
 
-        .profile-img-box {
-            width: 95px;
-            height: 95px;
+        .avatar-box {
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
             overflow: hidden;
-            border: 2px solid var(--accent-blue);
+            border: 2px solid var(--accent-purple);
             flex-shrink: 0;
-            background: #1e293b;
+            background: #1a1c29;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.3s;
         }
 
-        .profile-img-box:hover {
+        .avatar-box:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         }
 
-        .profile-img-box img {
+        .avatar-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .profile-info h1 {
-            font-size: 1.85rem;
+        .profile-text h1 {
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 4px;
-            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            background: linear-gradient(135deg, #ffffff, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
         }
 
-        .profile-info p {
+        .profile-text p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        .status-badge {
+        .live-pill {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(16, 185, 129, 0.1);
+            background: rgba(16, 185, 129, 0.08);
             border: 1px solid rgba(16, 185, 129, 0.2);
             padding: 4px 12px;
-            border-radius: 20px;
+            border-radius: 30px;
             font-size: 0.75rem;
             color: #34d399;
             font-weight: 600;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
-        .pulse {
+        .dot-pulse {
             width: 6px;
             height: 6px;
             background-color: #34d399;
@@ -141,106 +143,111 @@
             box-shadow: 0 0 8px #34d399;
         }
 
-        .card h3 {
-            font-size: 1.2rem;
+        .bento-card h3 {
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            color: #f1f5f9;
+            margin-bottom: 10px;
+            color: #ffffff;
         }
 
-        .card p {
+        .bento-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
-        /* Skills Tags */
-        .skills-flex {
+        /* Tech Tags */
+        .tags-wrap {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 12px;
+            margin-top: 14px;
         }
 
-        .tag {
-            background: rgba(255, 255, 255, 0.04);
+        .pill-tag {
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--card-border);
-            padding: 6px 14px;
-            border-radius: 10px;
-            font-size: 0.85rem;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
             font-weight: 500;
-            color: #e2e8f0;
+            color: #d1d5db;
         }
 
-        /* Buttons */
-        .btn-primary {
-            display: inline-block;
+        /* Action Buttons */
+        .btn-main {
+            display: block;
             width: 100%;
             text-align: center;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             color: white;
-            padding: 12px;
+            padding: 11px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 12px;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            font-size: 0.9rem;
+            margin-top: 14px;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
             transition: opacity 0.2s;
         }
 
-        .btn-primary:hover {
+        .btn-main:hover {
             opacity: 0.9;
         }
 
-        .btn-secondary {
-            display: inline-block;
+        .btn-sub {
+            display: block;
             width: 100%;
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--card-border);
             color: #34d399;
             padding: 10px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
             margin-top: 8px;
             transition: background 0.2s;
         }
 
-        .btn-secondary:hover {
-            background: rgba(52, 211, 153, 0.1);
+        .btn-sub:hover {
+            background: rgba(52, 211, 153, 0.08);
         }
 
-        .btn-outline {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.05);
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--card-border);
-            color: #60a5fa;
-            padding: 8px 16px;
+            color: #a78bfa;
+            padding: 8px 14px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            transition: background 0.2s;
+            font-size: 0.85rem;
+            margin-top: 16px;
+            transition: all 0.2s;
         }
 
-        .btn-outline:hover {
-            background: rgba(59, 130, 246, 0.1);
+        .btn-link:hover {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: rgba(139, 92, 246, 0.3);
         }
 
-        .contact-link {
-            color: #60a5fa;
+        .link-text {
+            color: #a78bfa;
             text-decoration: none;
             font-weight: 600;
             word-break: break-all;
         }
 
-        .contact-link:hover {
+        .link-text:hover {
             text-decoration: underline;
         }
 
-        /* Modal Popup for Image Zoom */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -252,15 +259,15 @@
             background-color: rgba(0, 0, 0, 0.85);
             justify-content: center;
             align-items: center;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
         }
 
         .modal-content {
             max-width: 90%;
             max-height: 90%;
             border-radius: 16px;
-            border: 2px solid var(--accent-blue);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            border: 2px solid var(--accent-purple);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
             object-fit: contain;
         }
 
@@ -269,131 +276,122 @@
             top: 25px;
             right: 35px;
             color: #fff;
-            font-size: 40px;
+            font-size: 35px;
             font-weight: bold;
             cursor: pointer;
-            transition: color 0.2s;
         }
 
-        .close-modal:hover {
-            color: #60a5fa;
-        }
-
-        .footer-note {
+        .footer-box {
             grid-column: span 3;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.85rem;
-            padding: 20px 0;
+            font-size: 0.8rem;
+            padding: 15px 0;
             border-top: 1px solid var(--card-border);
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         @media (max-width: 900px) {
-            .footer-note { grid-column: span 1; }
+            .footer-box { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-container">
+    <div class="bento-container">
         
-        <!-- Card 1: Profile & Intro (Span 2) -->
-        <div class="card span-2">
-            <div class="profile-header">
-                <!-- Profile Image with Click to Expand Feature -->
-                <div class="profile-img-box" onclick="openModal()">
+        <!-- Bento 1: Profile & Intro (Span 2) -->
+        <div class="bento-card span-2">
+            <div class="profile-flex">
+                <div class="avatar-box" onclick="openModal()">
                     <img id="profileImg" src="profile.jpg" alt="Goli Anup Reddy" onerror="this.style.display='none'; this.parentNode.innerHTML='<span>Photo</span>';">
                 </div>
-                <div class="profile-info">
+                <div class="profile-text">
                     <h1>Goli Anup Reddy</h1>
                     <p>Computer Science & Engineering Graduate</p>
-                    <div class="status-badge">
-                        <div class="pulse"></div>
+                    <div class="live-pill">
+                        <div class="dot-pulse"></div>
                         Open for Opportunities
                     </div>
                 </div>
             </div>
-            <p style="margin-top: 20px;">
-                Graduated from <strong>Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad</strong>. Passionate about software architecture, data handling, and deploying robust full-stack applications.
+            <p style="margin-top: 18px;">
+                Graduated from <strong>Gokaraju Rangaraju Institute of Engineering and Technology (GRIET), Hyderabad</strong>. Specialized in full-stack architecture, building responsive web apps, and decentralized systems.
             </p>
         </div>
 
-        <!-- Card 2: Quick Connect (Span 1) -->
-        <div class="card span-1">
+        <!-- Bento 2: Quick Connect (Span 1) -->
+        <div class="bento-card span-1">
             <h3>Quick Connect</h3>
-            <p style="margin-bottom: 8px;"><strong>Email:</strong><br><a href="mailto:goli.anupreddy03@gmail.com" class="contact-link">goli.anupreddy03@gmail.com</a></p>
-            <p style="margin-bottom: 12px;"><strong>Phone:</strong><br><span style="color: #f8fafc; font-weight: 600;">+91 8978962149</span></p>
-            <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank" class="btn-primary">LinkedIn Profile</a>
-            <a href="resume.pdf" target="_blank" class="btn-secondary">Download Resume</a>
+            <p style="margin-bottom: 6px; font-size: 0.85rem;"><strong>Email:</strong><br><a href="mailto:goli.anupreddy03@gmail.com" class="link-text">goli.anupreddy03@gmail.com</a></p>
+            <p style="margin-bottom: 10px; font-size: 0.85rem;"><strong>Phone:</strong><br><span style="color: #f3f4f6; font-weight: 600;">+91 8978962149</span></p>
+            <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank" class="btn-main" style="margin-top: 4px;">LinkedIn Profile</a>
+            <a href="resume.pdf" target="_blank" class="btn-sub">Download Resume</a>
         </div>
 
-        <!-- Card 3: Featured Project - LMS (Span 2) -->
-        <div class="card span-2" style="border-color: rgba(59, 130, 246, 0.3);">
-            <div>
-                <span style="background: rgba(59, 130, 246, 0.1); color: #60a5fa; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Featured Project</span>
-                <h3 style="margin-top: 10px; font-size: 1.4rem;">Learning Management System (LMS)</h3>
-            </div>
-            <p style="margin-top: 10px;">
-                A fully functional, web-based Learning Management System designed to streamline course management, student workflows, and educational content delivery with a modern UI.
+        <!-- Bento 3: Featured Project - LMS (Span 2) -->
+        <div class="bento-card span-2">
+            <span style="background: rgba(59, 130, 246, 0.1); color: #60a5fa; padding: 3px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Featured Project</span>
+            <h3 style="margin-top: 8px;">Learning Management System (LMS)</h3>
+            <p>
+                A fully functional e-learning platform enabling course management, student workflows, secure JWT authentication, and centralized Redux state management.
             </p>
-            <div style="margin-top: 12px;">
-                <span class="tag">Web Architecture</span>
-                <span class="tag">UI/UX</span>
-                <span class="tag">Education Tech</span>
+            <div class="tags-wrap">
+                <span class="pill-tag">React.js</span>
+                <span class="pill-tag">Node.js</span>
+                <span class="pill-tag">MongoDB</span>
+                <span class="pill-tag">Tailwind CSS</span>
             </div>
-            <a href="https://lms-learning-management-system-beryl.vercel.app/" target="_blank" class="btn-outline">Launch Live Project &rarr;</a>
+            <a href="https://lms-learning-management-system-beryl.vercel.app/" target="_blank" class="btn-link">Launch Live Project &rarr;</a>
         </div>
 
-        <!-- Card 4: Education (Span 1) -->
-        <div class="card span-1">
+        <!-- Bento 4: Education (Span 1) -->
+        <div class="bento-card span-1">
             <h3>Education</h3>
-            <p style="color: #f1f5f9; font-weight: 600; margin-bottom: 4px;">B.Tech in CSE</p>
-            <p style="font-size: 0.9rem; margin-bottom: 6px;">GRIET, Hyderabad</p>
-            <p style="font-size: 0.85rem; color: #60a5fa;">Core CS & Problem Solving</p>
+            <p style="color: #f3f4f6; font-weight: 600; margin-bottom: 4px;">B.Tech in CSE</p>
+            <p style="font-size: 0.85rem; margin-bottom: 6px;">GRIET, Hyderabad</p>
+            <p style="font-size: 0.8rem; color: #a78bfa;">CGPA: 6.89/10 (2026)</p>
         </div>
 
-        <!-- Card 5: Featured Project - Decentralized Voting System (Span 2) -->
-        <div class="card span-2" style="border-color: rgba(139, 92, 246, 0.3);">
-            <div>
-                <span style="background: rgba(139, 92, 246, 0.1); color: #c084fc; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Blockchain Project</span>
-                <h3 style="margin-top: 10px; font-size: 1.4rem;">Decentralized Voting System</h3>
-            </div>
-            <p style="margin-top: 10px;">
-                A secure, transparent, and tamper-proof blockchain voting platform built to eliminate electoral fraud and ensure verifiable election results with role-based admin/voter dashboards.
+        <!-- Bento 5: Blockchain Project (Span 2) -->
+        <div class="bento-card span-2">
+            <span style="background: rgba(139, 92, 246, 0.1); color: #c084fc; padding: 3px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Blockchain Project</span>
+            <h3 style="margin-top: 8px;">Decentralized Voting System</h3>
+            <p>
+                A secure, transparent blockchain voting platform utilizing smart contracts and cryptographic hashing to prevent electoral fraud and ensure tamper-proof audit trails.
             </p>
-            <div style="margin-top: 12px;">
-                <span class="tag">Solidity</span>
-                <span class="tag">Web3.js</span>
-                <span class="tag">Smart Contracts</span>
-                <span class="tag">Python</span>
+            <div class="tags-wrap">
+                <span class="pill-tag">Solidity</span>
+                <span class="pill-tag">Web3.js</span>
+                <span class="pill-tag">Smart Contracts</span>
+                <span class="pill-tag">JavaScript</span>
             </div>
-            <a href="https://decentralized-voting-system-one.vercel.app/" target="_blank" class="btn-outline">Launch Live Project &rarr;</a>
+            <a href="https://decentralized-voting-system-one.vercel.app/" target="_blank" class="btn-link">Launch Live Project &rarr;</a>
         </div>
 
-        <!-- Card 6: Technical Stack (Span 3) -->
-        <div class="card span-3">
+        <!-- Bento 6: Technical Stack (Span 3) -->
+        <div class="bento-card span-3">
             <h3>Technical Stack & Capabilities</h3>
-            <p>Comprehensive skill set aligned with modern corporate software standards.</p>
-            <div class="skills-flex">
-                <span class="tag">Python</span>
-                <span class="tag">Data Structures</span>
-                <span class="tag">SQL & Databases</span>
-                <span class="tag">HTML / CSS / JavaScript</span>
-                <span class="tag">Full-Stack Deployment</span>
-                <span class="tag">Git & GitHub</span>
-                <span class="tag">Problem Solving</span>
+            <p style="font-size: 0.85rem;">Core technical competencies aligned with modern software engineering standards.</p>
+            <div class="tags-wrap" style="margin-top: 10px;">
+                <span class="pill-tag">JavaScript (ES6+)</span>
+                <span class="pill-tag">Python</span>
+                <span class="pill-tag">React.js & Redux</span>
+                <span class="pill-tag">Node.js & Express</span>
+                <span class="pill-tag">MongoDB & MySQL</span>
+                <span class="pill-tag">Data Structures & Algorithms</span>
+                <span class="pill-tag">Git & GitHub</span>
             </div>
         </div>
 
-        <!-- Footer Note -->
-        <div class="footer-note">
-            &copy; 2026 Goli Anup Reddy. Built with Next-Level Professional Architecture.
+        <!-- Footer -->
+        <div class="footer-box">
+            &copy; 2026 Goli Anup Reddy. Crafted with Bento-Grid Design System.
         </div>
 
     </div>
 
-    <!-- Image Zoom Modal -->
+    <!-- Image Modal -->
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="modalImg">
@@ -409,7 +407,6 @@
                 modalImg.src = profileImg.src;
             }
         }
-
         function closeModal() {
             document.getElementById("imageModal").style.display = "none";
         }
